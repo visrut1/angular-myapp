@@ -59,6 +59,24 @@
       "type": "poison",
       "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png",
       "id": 10
+    },
+    {
+      "name": "",
+      "type": "",
+      "imgUrl": "",
+      "id": 11
+    },
+    {
+      "name": "d",
+      "type": "d",
+      "imgUrl": "d",
+      "id": 12
+    },
+    {
+      "name": "d",
+      "type": "d",
+      "imgUrl": "d",
+      "id": 13
     }
   ],
   "comments": [
