@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "type": "Grass",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+    },
+    {
+      "id": 2,
+      "name": "Charmander",
+      "type": "Fire",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+    },
+    {
+      "id": 3,
+      "name": "Squirtle",
+      "type": "Water",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
+    },
+    {
+      "name": "Butterfree",
+      "type": "fly",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png",
+      "id": 4
+    },
+    {
+      "name": "Charizard",
+      "type": "fly",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
+      "id": 5
+    },
+    {
+      "name": "Blastoise",
+      "type": "water",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png",
+      "id": 6
+    },
+    {
+      "name": "Caterpie",
+      "type": "bug",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png",
+      "id": 7
+    },
+    {
+      "name": "Metapod",
+      "type": "bug",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png",
+      "id": 8
+    },
+    {
+      "name": "Weedle",
+      "type": "poison",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png",
+      "id": 9
+    },
+    {
+      "name": "Kakuna",
+      "type": "poison",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png",
+      "id": 10
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
