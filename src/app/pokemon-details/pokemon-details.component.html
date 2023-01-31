@@ -1,7 +1,9 @@
-<div class="card" style="width: 18rem;">
-    <img src={{pokemon.imgUrl}} class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{pokemon.name}}</h5>
-        <p class="card-text">{{pokemon.type}}</p>
-    </div>
+<div class="card" style="width: 18rem">
+  <a routerLink="/pokemon/{{ pokemon.id }}">
+    <img src="{{ pokemon.imgUrl }}" class="card-img-top" alt="..."
+  /></a>
+  <div class="card-body">
+    <h5 class="card-title">{{ pokemon.name }}</h5>
+    <p class="card-text">{{ pokemon.type }}</p>
+  </div>
 </div>

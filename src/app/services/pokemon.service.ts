@@ -6,12 +6,15 @@ import { PokemonModel } from '../model/pokemon.model';
   providedIn: 'root',
 })
 export class PokemonService {
-  baseUrl = 'http://localhost:3000/posts';
+  baseUrl = 'http://localhost:3000/posts/';
   constructor(private http: HttpClient) {}
   getPokemon() {
     return this.http.get<PokemonModel[]>(this.baseUrl);
   }
   addPokemon(pokemon: PokemonModel) {
     return this.http.post<PokemonModel>(this.baseUrl, pokemon);
+  }
+  getPokemonById(id: number | string) {
+    return this.http.get<PokemonModel>(this.baseUrl + id);
   }
 }

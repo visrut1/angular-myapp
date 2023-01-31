@@ -16,18 +16,20 @@ import { PokemonService } from '.././services/pokemon.service';
 export class PokemonShowComponent implements OnInit {
   pokemonForm: FormGroup;
   allPokemon: PokemonModel[];
-  pokemonToDisplay: PokemonModel[];
-  pokemons: PokemonModel[];
+  pokemonsOnThisPage: PokemonModel[];
   isLoaded: boolean;
   errMsg: string;
   pokemon: PokemonModel = new PokemonModel();
   validUrl = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
+  page = 1;
+  pageSize = 8;
+  collectionSize: number = 0;
+
   constructor(private fb: FormBuilder, private pokemonService: PokemonService) {
     this.pokemonForm = fb.group({});
     this.allPokemon = [];
-    this.pokemonToDisplay = this.allPokemon;
-    this.pokemons = [];
+    this.pokemonsOnThisPage = [];
     this.isLoaded = false;
     this.errMsg = '';
   }
@@ -45,7 +47,8 @@ export class PokemonShowComponent implements OnInit {
         for (let pokemon of response) {
           this.allPokemon.unshift(pokemon);
         }
-        this.pokemonToDisplay = this.allPokemon;
+        this.collectionSize = this.allPokemon.length;
+        this.pokemonsOnThisPage = this.allPokemon.slice(0, this.pageSize);
       },
       error: (err) => {
         this.errMsg = err.message;
@@ -92,5 +95,12 @@ export class PokemonShowComponent implements OnInit {
         this.errMsg = err.message;
       },
     });
+  }
+
+  refreshPokemons() {
+    this.pokemonsOnThisPage = this.allPokemon.slice(
+      (this.page - 1) * this.pageSize,
+      (this.page - 1) * this.pageSize + this.pageSize
+    );
   }
 }

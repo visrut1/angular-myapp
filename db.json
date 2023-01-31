@@ -59,6 +59,18 @@
       "type": "poison",
       "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png",
       "id": 10
+    },
+    {
+      "name": "Pidgeot",
+      "type": "flying",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png",
+      "id": 11
+    },
+    {
+      "name": "Rattata",
+      "type": "normal",
+      "imgUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png",
+      "id": 12
     }
   ],
   "comments": [
