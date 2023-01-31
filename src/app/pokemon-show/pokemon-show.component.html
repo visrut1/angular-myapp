@@ -1,0 +1,181 @@
+<div
+  *ngIf="this.isLoaded == true"
+  class="alert alert-success alert-dismissible fade show my-3"
+  role="alert"
+>
+  <strong>Success</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+    (click)="setIsloaded()"
+  ></button>
+</div>
+
+<div
+  *ngIf="this.errMsg !== ''"
+  class="alert alert-danger alert-dismissible fade show my-3"
+  role="alert"
+>
+  <strong>{{ errMsg }}</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+    (click)="setCloseErr()"
+  ></button>
+</div>
+<div class="flex d-flex justify-content-center mt-3 mb-3">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Add Pokemon
+  </button>
+</div>
+<div *ngIf="this.errMsg == ''">
+  <div
+    class="flex container d-flex flex-wrap justify-content-center gap-4 mt-3"
+  >
+    <div class="row" *ngIf="this.pokemonToDisplay.length == 0">No Pokemon</div>
+    <div *ngFor="let pokemon of pokemonToDisplay; let i = index">
+      <app-pokemon-details [pokemon]="pokemon"></app-pokemon-details>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Pokemon</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="clearForm()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="pokemonForm">
+            <div class="mb-3">
+              <label for="exampleInputName" class="form-label"
+                >Pokemon Name</label
+              >
+              <input
+                formControlName="name"
+                class="form-control"
+                id="exampleInputName"
+                aria-describedby="emailHelp"
+                placeholder="Pokemon Name"
+                required
+                minlength="4"
+              />
+              <div
+                *ngIf="this.Name.touched && this.Name.invalid"
+                class="alert alert-danger p-1 px-3 mt-2"
+              >
+                <div *ngIf="this.Name.errors?.['required']">
+                  Name is required.
+                </div>
+                <div *ngIf="this.Name.errors?.['minlength']">
+                  Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="this.Name.errors?.['pattern']">
+                  Name can not be number.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputType" class="form-label"
+                >Speciality</label
+              >
+              <input
+                formControlName="type"
+                class="form-control"
+                id="exampleInputType"
+                placeholder="Pokemon Speciality"
+                required
+              />
+              <div
+                *ngIf="this.Types.invalid && this.Types.touched"
+                class="alert alert-danger p-1 px-3 mt-2"
+              >
+                <div *ngIf="this.Types.errors?.['required']">
+                  Type is required.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputUrl" class="form-label">ImageUrl</label>
+              <input
+                formControlName="imgUrl"
+                class="form-control"
+                id="exampleInputUrl"
+                placeholder="Pokemon ImageUrl"
+                url
+                required
+              />
+              <div
+                *ngIf="this.ImageUrl.invalid && this.ImageUrl.touched"
+                class="alert alert-danger p-1 px-3 mt-2"
+              >
+                <div *ngIf="this.ImageUrl.errors?.['required']">
+                  Url is required.
+                </div>
+                <div *ngIf="this.ImageUrl.errors?.['pattern']">
+                  Please enter valid url.
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="clearForm()"
+          >
+            Close
+          </button>
+          <div
+            *ngIf="
+              !this.Name.invalid &&
+                !this.Types.invalid &&
+                !this.ImageUrl.invalid;
+              else elseBlock
+            "
+          >
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="addPokemon()"
+              (click)="setIsloaded()"
+              data-bs-dismiss="modal"
+            >
+              Save changes
+            </button>
+          </div>
+          <div>
+            <ng-template #elseBlock>
+              <button type="submit" class="btn btn-primary" disabled>
+                Save changes
+              </button>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
