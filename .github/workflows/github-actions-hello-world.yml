@@ -1,0 +1,9 @@
+name: hello world
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing hello world
+        run: echo "Hello world"
